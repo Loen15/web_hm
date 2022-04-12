@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en" class="h-100">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+	<meta name="generator" content="Hugo 0.88.1">
+	<title>Sticky Footer Navbar Template · Bootstrap v5.1</title>
+
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/main.css">
+
+	<style>
+		.bd-placeholder-img {
+			font-size: 1.125rem;
+			text-anchor: middle;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			user-select: none;
+		}
+		
+		@media (min-width: 768px) {
+			.bd-placeholder-img-lg {
+				font-size: 3.5rem;
+			}
+		}
+	</style>
+
+	<!-- Custom styles for this template -->
+	<link href="sticky-footer-navbar.css" rel="stylesheet">
+</head>
+
+<body class="d-flex flex-column h-100">
+
+	<header>
+		<!-- Fixed navbar -->
+		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+			<div class="container-fluid justify-content-between">
+				<a class="navbar-brand" href="#">AskGapojan</a>
+				<div class="collapse navbar-collapse col-2" id="navbarCollapse">
+					<form class="d-flex">
+						<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+						<button class="btn btn-outline-success" type="submit">Ask</button>
+					</form>
+				</div>
+				<div class="col-2">
+					<form class="container-fluid justify-content-start">
+						<a href="login.html" class="btn btn-outline-light">Log in</a>
+						<a href="signup.html" class="btn btn-secondary">Sign up</a>
+					</form>
+				</div>
+				<div class="col-2 row">
+					<div class="col">
+						<img class="avatar-nav" src="img/avatar.jpg" alt="img">
+					</div>
+					<div class="col">
+						<font color="white">
+						<h5>Anonimus</h5>
+						
+					</font>
+						<a href="#" class="btn btn-secondary btn-sm button_log">Log out</a>
+					</div>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+	<!-- Begin page content -->
+	<main class="flex-shrink-0">
+		<div class="container">
+			<div class="row">
+				<div class="col-9 mt-5">
+					<h2>Registration</h2>
+					<div class="mb-3 row">
+						<label class="col-sm-2 col-form-label">Login</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control w-50 is-invalid" >
+							<div class="invalid-feedback">
+								This login is already taken!
+							</div>
+						</div>	
+					</div>
+					<div class="mb-3 row">
+						<label class="col-sm-2 col-form-label">Email</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control w-50 is-invalid" >
+							<div class="invalid-feedback">
+								This email adress is already registred!
+							</div>
+						</div>	
+					</div>
+					<div class="mb-3 row">
+						<label class="col-sm-2 col-form-label">NickName</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control w-50 is-invalid" >
+							<div class="invalid-feedback">
+								This NickName is already taken!
+							</div>
+						</div>	
+					</div>
+					<div class="mb-3 row">
+						<label class="col-sm-2 col-form-label">Password</label>
+						<div class="col-sm-10">
+							<input type="password" class="form-control w-50 is-invalid" >
+							<div class="invalid-feedback">
+								Password has incorect symbols!
+							</div>
+						</div>
+					</div>
+					<div class="mb-3 row">
+						<label class="col-sm-2 col-form-label">Repeat password</label>
+						<div class="col-sm-10">
+							<input type="password" class="form-control w-50 is-invalid" >
+							<div class="invalid-feedback">
+								Passwords don't match!
+							</div>
+						</div>	
+					</div>
+					<div class="mb-3 row">
+						<p class="col-sm-2 col-form-label">Upload avatar</p>
+						<div class="col-sm-10">
+							<input type="file" class="form-control w-50">
+						</div>
+					</div>
+					<a href="#" class="btn btn-primary m-5">Register!</a>
+					
+				</div>
+				<div class="col-3">
+					<div class="mt-5">
+						<h2>Tags</h2>
+						<a href="#" class="link-">tag</a>
+						<a href="#" class="link-">tag</a>
+						<a href="#" class="link-">tag</a>
+						<a href="#" class="link-">tag</a>
+					</div>
+					<div class="mt-5">
+						<h2>Best members</h2>
+						<ul>
+							<li><a href="#" class="link-">member</a></li>
+							<li><a href="#" class="link-">member</a></li>
+							<li><a href="#" class="link-">member</a></li>
+							<li><a href="#" class="link-">member</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<script src="/docs/5.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
