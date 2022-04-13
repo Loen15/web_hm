@@ -1,0 +1,22 @@
+{% load static %}
+<div class="question">
+    <div class="row">
+        <div class="col-2">
+            <img class="avatar-question" src="{% static 'img/avatar.jpg' %}" alt="img">
+        </div>
+        <div class="col-9">
+            <p>{{answer.text}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            <button type="button" class="btn btn-success btn-sm">+</button>
+            {{answer.likes}}
+            <button type="button" class="btn btn-danger btn-sm">-</button>
+        </div>
+        <div class="col-3">
+            <input type="checkbox" class="form-check-input">
+            Correct!
+        </div>
+    </div>
+</div>

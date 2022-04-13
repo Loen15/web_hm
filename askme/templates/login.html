@@ -1,0 +1,31 @@
+{% extends "inc/base.html"%}
+
+
+{% block log %}
+{% include "inc/not_authorised.html" %}
+{% endblock log %}
+{% block content %}
+	
+	<h2 class="mt-5">Login</h2>
+	
+	<font color="red">Incorrect login or password!</font>
+		<div class="mb-3 row">
+			<label class="col-sm-2 col-form-label">Login</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control w-50" >
+			</div>	
+		</div>
+		<div class="mb-3 row">
+			<label class="col-sm-2 col-form-label">Password</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control w-50">
+			</div>	
+		</div>
+		<a href="{% url 'main' %}" class="btn btn-primary m-5">log in!</a>
+		<a href="{% url 'signup' %}" class="btn btn-secondary">Create new account</a>				
+{% endblock content %}
+
+{% block side_panel %}
+	{% include "inc/side_tags.html" %}
+	{% include "inc/side_members.html" %}
+{% endblock side_panel %}

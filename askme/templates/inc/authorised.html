@@ -1,0 +1,13 @@
+{% load static %}
+<div class="row">
+    <div class="col">
+        <img class="avatar-nav" src="{% static 'img/avatar.jpg' %}" alt="img">
+    </div>
+    <div class="col">
+        <font color="white">
+            <h5>Anonimus</h5>
+            
+        </font>
+        <a href="{% url 'login' %}" class="btn btn-secondary btn-sm button_log">Log out</a>
+    </div>
+</div>

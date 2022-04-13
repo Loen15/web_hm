@@ -1,0 +1,28 @@
+{% extends "inc/base.html"%}
+
+
+{% block log %}
+{% include "inc/authorised.html" %}
+{% endblock log %}
+{% block content %}
+	
+	{% include "inc/ques.html" %}
+	<hr size="5">
+    {% for answer in answers %}
+    {% include "inc/ans.html" %}
+    {% endfor %}
+	<hr size="5">
+    <textarea class="form-control is-invalid" style="height: 120px; max-height: 200px;"></textarea>
+    <div class="invalid-feedback">
+        Fill answer!
+    </div>
+    <a href="#" class="btn btn-primary">Answer</a>
+	{% with page=answers %}
+	{% include "inc/pagination.html" %}
+	{% endwith %}
+{% endblock content %}
+
+{% block side_panel %}
+	{% include "inc/side_tags.html" %}
+	{% include "inc/side_members.html" %}
+{% endblock side_panel %}

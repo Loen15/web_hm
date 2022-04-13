@@ -1,0 +1,26 @@
+{% extends "inc/base.html"%}
+
+
+{% block log %}
+{% include "inc/authorised.html" %}
+{% endblock log %}
+{% block content %}
+	
+	<h2 class="mt-5">
+		Questions
+		<a class="ml-5" href=" {% url 'hot' %}"> Hot questions</a>
+	</h2>
+	
+	{% for question in questions %}
+	{% include "inc/ques.html" %}
+	{% endfor %}
+	
+	{% with page=questions %}
+	{% include "inc/pagination.html" %}
+	{% endwith %}
+{% endblock content %}
+
+{% block side_panel %}
+	{% include "inc/side_tags.html" %}
+	{% include "inc/side_members.html" %}
+{% endblock side_panel %}	

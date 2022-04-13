@@ -1,0 +1,28 @@
+{% load static %}
+<div class="question">
+		<div class="row">
+			<div class="col-2">
+				<img class="avatar-question" src="{% static 'img/avatar.jpg' %}" alt="img">
+			</div>
+			<div class="col-9">
+				<h3>{{ question.title }}</h3>
+				<p>{{ question.text }}</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-2">
+				<button type="button" class="btn btn-success">+</button>
+				{{question.likes}}
+				<button type="button" class="btn btn-danger">-</button>
+			</div>
+			<div class="col-3">
+				<a href="{% url 'question' question.number %}" class="btn btn-primary">Answers</a>		
+			</div>
+			<div class="col-7">
+				Tegs:
+				<a href="{% url 'tags' question.tag1 %}" class="link-">{{question.tag1}}</a>
+				<a href="{% url 'tags' question.tag2 %}" class="link-">{{question.tag2}}</a>
+		
+			</div>
+		</div>
+	</div>

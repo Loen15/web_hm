@@ -1,0 +1,6 @@
+<div class="mt-5">
+    <h2>Popular tags</h2>
+    {% for tag in tags %}
+    <a href="{% url 'tags' tag.tag %}" class="link-">{{ tag.tag }}</a>
+    {% endfor %}
+</div>
