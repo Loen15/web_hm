@@ -1,7 +1,14 @@
-from django.core.paginator import Paginator
-from django.shortcuts import render
+from django.http import HttpResponseNotFound
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.shortcuts import render, get_object_or_404
 import random
 
+from app.models import *
+
+new_questions = Question.new_questions.all()
+hot_questions = Question.hot_questions.all()
+top_tags = Tag.top_tags.all()
+top_users = Profile.top_users.all()
 # Create your views here.
 QUESTIONS = [
     {
@@ -31,51 +38,64 @@ TAGS = [
 
 
 def index(request):
-    questions = paginate(QUESTIONS, request)
+    questions = paginate(new_questions, request)
     context = {
         "questions": questions,
-        "tags": TAGS}
+        "top_tegs": top_tags,
+        "top_users":top_users}
     return render(request, "index.html", context)
 
 
 def hot(request):
-    questions = paginate(QUESTIONS, request)
+    questions = paginate(hot_questions, request)
     context = {
         "questions": questions,
-        "tags": TAGS}
+        "top_tegs": top_tags,
+        "top_users":top_users}
     return render(request, "hot.html", context)
 
 
-def tags(request, tag: str):
-    questions = paginate(QUESTIONS, request)
+def tags(request, tag_f: str):
+    tagg = get_object_or_404(Tag.tags.filter(tag=tag_f)).questions.all()
+    questions = paginate(tagg, request)
     context = {
-        "tag": tag,
         "questions": questions,
-        "tags": TAGS}
+        "teg_filt": tag_f,
+        "top_tegs": top_tags,
+        "top_users":top_users}
     return render(request, "tags.html", context)
 
 
 def question(request,i: int):
-    answers = paginate(ANSWERS, request)
+    question = get_object_or_404(Question, pk = i)
+    answers = Answer.answers.filter(question=question)
+    answers = paginate(answers, request)
     context = {
-        "question": QUESTIONS[i],
+        "question": question,
         "answers": answers,
-        "tags": TAGS}
+        "top_tegs": top_tags,
+        "top_users":top_users}
     return render(request, "question.html", context)
 
 
 def login(request):
-    context = {"tags": TAGS}
+    context = {
+        "top_tegs": top_tags,
+        "top_users":top_users}
     return render(request, "login.html", context)
 
 
 def signup(request):
-    context = {"tags": TAGS}
+    context = {
+        "top_tegs": top_tags,
+        "top_users":top_users}
     return render(request, "signup.html", context)
 
 
 def ask(request):
-    context = {"tags": TAGS}
+    context = {
+        "top_tegs": top_tags,
+        "top_users":top_users}
     return render(request, "ask.html", context)
 
 def paginate(objects_list, request):
@@ -83,3 +103,6 @@ def paginate(objects_list, request):
     page = request.GET.get('page')
     objects_on_page = paginator.get_page(page)
     return objects_on_page
+
+def pageNotFound(request, exception):
+    return HttpResponseNotFound('<h1>Not found!</h1>')

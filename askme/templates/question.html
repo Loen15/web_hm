@@ -6,7 +6,31 @@
 {% endblock log %}
 {% block content %}
 	
-	{% include "inc/ques.html" %}
+    <div class="question">
+        <div class="row">
+            <div class="col-2">
+                <img class="avatar-question" src="{{ question.author.profile.avatar.url }}" alt="img">
+            </div>
+            <div class="col-9">
+                <h3>{{ question.title }}</h3>
+                <p>{{ question.text }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2">
+                <button type="button" class="btn btn-success">+</button>
+                {{question.likes}}
+                <button type="button" class="btn btn-danger">-</button>
+            </div>
+            <div class="col-7">
+                Tegs:
+                {% for tag in question.tag.all %}
+                    <a href="{% url 'tags' tag.tag %}" class="link-">{{tag.tag}}</a>
+                {% endfor %}
+                
+            </div>
+        </div>
+    </div>
 	<hr size="5">
     {% for answer in answers %}
     {% include "inc/ans.html" %}

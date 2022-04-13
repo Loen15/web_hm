@@ -2,7 +2,7 @@
 <div class="question">
     <div class="row">
         <div class="col-2">
-            <img class="avatar-question" src="{% static 'img/avatar.jpg' %}" alt="img">
+            <img class="avatar-question" src="{{ answer.author.profile.avatar.url }}" alt="img">
         </div>
         <div class="col-9">
             <p>{{answer.text}}</p>
@@ -15,7 +15,11 @@
             <button type="button" class="btn btn-danger btn-sm">-</button>
         </div>
         <div class="col-3">
-            <input type="checkbox" class="form-check-input">
+            {%if answer.is_correct%}
+                <input type="checkbox" class="form-check-input" checked>
+            {% else %}
+                <input type="checkbox" class="form-check-input">
+            {%endif%}
             Correct!
         </div>
     </div>
