@@ -10,31 +10,6 @@ hot_questions = Question.hot_questions.all()
 top_tags = Tag.top_tags.all()
 top_users = Profile.top_users.all()
 # Create your views here.
-QUESTIONS = [
-    {
-        "title": f"Question #{i}",
-        "text": f"Text of question #{i}",
-        "number": i,
-        "tag1": f"Teg #{i}",
-        "tag2": f"Teg #{i+1}",
-        "likes":  random.randint(1,50)
-    } for i in range(10)
-]
-
-
-ANSWERS = [
-    {
-        "text": f"Text of answer #{i}",
-        "likes":  random.randint(1,50),
-    } for i in range(5)
-]
-
-
-TAGS = [
-    {
-        "tag": f"Teg #{i}",
-    } for i in range(11)
-]
 
 
 def index(request):
